@@ -78,13 +78,15 @@ const ArrowUpRight = ({ color = '#999' }: { color?: string }) => (
   </svg>
 );
 
+type CategoryTitle = (typeof CATEGORIES)[number]['title'];
+
 const CategoryCard = ({
   title,
   color,
   items,
   rotation,
 }: {
-  title: string;
+  title: CategoryTitle;
   color: string;
   items: ReadonlyArray<{ label: string; href: string }>;
   rotation: string;
@@ -101,6 +103,7 @@ const CategoryCard = ({
     if (title === 'Layout') {
       return <IconLayout color={color} size={'20px'} />;
     }
+    return null;
   };
 
   return (
